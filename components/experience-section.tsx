@@ -14,10 +14,14 @@ type Experience = {
   position: string
   company?: string
   date: string
-  description: string
+  description?: string
   image?: string
+  video?: string
+  videoPlaybackRate?: number
   icon?: string
   link?: string
+  githubLink?: string
+  liveLink?: string
   category: FilterType
   /** Hover art for work rows: brand hue plus a variant of the shared motif. */
   art?: RowArt
@@ -26,10 +30,9 @@ type Experience = {
 const experiences: Experience[] = [
   {
     id: "lunon-swe",
-    position: "Software Engineer Intern",
+    position: "Software Engineer",
     company: "Lunon",
     date: "2026",
-    description: "AI native consulting.",
     image: "",
     icon: "/images/lunon.png",
     link: "https://lunon.ai/",
@@ -38,10 +41,9 @@ const experiences: Experience[] = [
   },
   {
     id: "magic-hour-swe",
-    position: "Software Engineer Intern",
+    position: "Software Engineer",
     company: "Magic Hour (YC W24)",
     date: "2026",
-    description: "Building AI video editing tools to push the boundaries of video editing.",
     image: "",
     icon: "https://magichour.ai/favicon.ico",
     link: "https://magichour.ai/",
@@ -50,10 +52,9 @@ const experiences: Experience[] = [
   },
   {
     id: "droneresearch",
-    position: "Research Intern",
+    position: "Research Engineer",
     company: "University of Toronto",
     date: "2026",
-    description: "With the University of Toronto Institute for Aerospace Studies.",
     image: "",
     icon: "https://www.utoronto.ca/favicon.ico",
     link: "https://flight.utias.utoronto.ca/",
@@ -62,10 +63,9 @@ const experiences: Experience[] = [
   },
   {
     id: "tmas-swe",
-    position: "Software Engineer Intern",
+    position: "Software Engineer",
     company: "TMAS Academy",
     date: "2025",
-    description: "Revamped TMAS website and built tools used by 10k+ students.",
     image: "/images/TMASwebsite.webp",
     icon: "/images/tmas.jpg",
     link: "https://www.youtube.com/channel/UC-Nt9Uo03VSo2QTNIzsE_cA/videos",
@@ -74,10 +74,9 @@ const experiences: Experience[] = [
   },
   {
     id: "zurich",
-    position: "Claims Intern",
+    position: "Claims Analyst",
     company: "Zurich Insurance",
     date: "2024",
-    description: "Worked across the claims and legal team. First ever job, introduced me to corporate.",
     image: "/images/zurich.webp",
     icon: "https://www.zurichcanada.com/favicon.ico",
     link: "https://www.zurich.com/",
@@ -86,53 +85,120 @@ const experiences: Experience[] = [
   },
 
   {
+    id: "mayim",
+    position: "Mayim",
+    date: "2026",
+    description: "Finds the highest-leverage site for new clean-water infrastructure in underserved towns, then designs and costs it. Won 3rd at the General Catalyst Hackathon.",
+    image: "/images/mayim.webp",
+    video: "/videos/mayim.mp4",
+    githubLink: "https://github.com/michaelmazilu/mayim",
+    liveLink: "https://mayimgc.vercel.app/",
+    category: "projects",
+  },
+  {
+    id: "polybot",
+    position: "PolyBot",
+    date: "2026",
+    description: "Runs prediction markets on autonomous browser agents racing to complete tasks while a master agent tries to sabotage them. Won 1st place at UTMIST x WATAI Hackathon.",
+    image: "/images/polybot.webp",
+    video: "/videos/polybot.mp4",
+    githubLink: "https://github.com/tkachyn/polybot",
+    liveLink: "https://polybot-inky.vercel.app",
+    category: "projects",
+  },
+  {
+    id: "skechmotion",
+    position: "SketchMotion",
+    date: "2026",
+    description: "A multi-clip storyboard tool that turns hand-drawn keyframes into animation, guided by an agentic crew that interviews you about your vision. Won Best Use of Gemini API at CentennialHacks.",
+    image: "/images/skechmotion.webp",
+    video: "/videos/skechmotion.mp4",
+    githubLink: "https://github.com/ericchen356/skechmotion",
+    category: "projects",
+  },
+  {
+    id: "atlas",
+    position: "Atlas",
+    date: "2026",
+    description: "Capture memories by re-living moments as walkable photorealistic 3D Gaussian Splats, complete with the ambient audio recorded during the shoot.",
+    image: "/images/atlas.webp",
+    video: "/videos/atlas.mp4",
+    videoPlaybackRate: 1.25,
+    githubLink: "https://github.com/nicholaskim17/atlas",
+    category: "projects",
+  },
+  {
+    id: "splavinci",
+    position: "Splavinci",
+    date: "2026",
+    description: "Generates cinematic camera flythroughs from a Gaussian-splat capture of a room, planning a wall-aware path between the waypoints you place.",
+    image: "/images/splavinci.webp",
+    video: "/videos/splavinci.mp4",
+    videoPlaybackRate: 1.25,
+    githubLink: "https://github.com/ericchen356/splavinci",
+    category: "projects",
+  },
+  {
+    id: "memory-bench",
+    position: "Memory Bench",
+    date: "2026",
+    description: "A benchmark measuring how different AI agent memory architectures (full history, search, summarization, fact stores) degrade as conversation history grows.",
+    image: "/images/memory-bench.webp",
+    video: "/videos/memory-bench.mp4",
+    githubLink: "https://github.com/ericchen356/memory-bench",
+    category: "projects",
+  },
+  {
     id: "nomad",
     position: "Nomad",
-    date: "June 2026",
-    description: "Passports for AI agents to prevent fraudulent activity. Won best use of Solana @ JamHacks10, Canada's biggest high school hackathon.",
+    date: "2026",
+    description: "Issues passports for AI agents to prevent fraudulent activity. Won Best Use of Solana @ JamHacks10, Canada's biggest high school hackathon.",
     image: "/images/nomad.webp",
-    link: "https://x.com/ericzxchen/status/2066627155706933311",
+    video: "/videos/nomad.mp4",
+    videoPlaybackRate: 1.25,
+    githubLink: "https://github.com/michaelmazilu/nomad",
+    liveLink: "https://x.com/ericzxchen/status/2066627155706933311",
     category: "projects",
   },
   {
     id: "ecrivons",
     position: "Écrivons",
-    date: "March 2026",
+    date: "2026",
     description: "A social app that builds connections through shared reflection and memories. Won best high school team @ Western Founders Network's Designathon.",
     image: "/images/ecrivons.webp",
-    link: "https://devpost.com/software/ecrivon",
+    liveLink: "https://devpost.com/software/ecrivon",
     category: "projects",
   },
   {
     id: "sph",
-    position: "Smoothed Particle Hydrodyamics Simulation",
-    date: "March 2025",
-    description: "Simulated particles using Smoothed Particle Hydrodynamics. Built alongside PhD canditates at the University of Toronto.",
+    position: "Smoothed Particle Hydrodynamics Simulation",
+    date: "2025",
+    description: "Simulated fluid particle behavior using Smoothed Particle Hydrodynamics, built alongside PhD candidates at the University of Toronto.",
     image: "/images/SPH.webp",
-    link: "https://github.com/EricChen356/SPH-Simulation",
+    githubLink: "https://github.com/EricChen356/SPH-Simulation",
     category: "projects",
   },
   {
     id: "sac-website",
     position: "Student Council Website",
-    date: "January 2025",
-    description: "Designed and developed my school's first website, 2k+ users.",
+    date: "2025",
+    description: "Designed and built my school's first official website from scratch, now used by 2,000+ students.",
     image: "/images/SACwebsite.webp",
-    link: "https://github.com/MillikenSAC/SACWebsite",
+    githubLink: "https://github.com/MillikenSAC/SACWebsite",
     category: "projects",
   },
   {
     id: "atd",
     position: "Anthropomorphic Testing Device",
-    date: "June 2025",
-    description: "A low-cost ATD used to simulate the biomechanics of a 7-11 year old in slow-speed car crashes.",
+    date: "2025",
+    description: "A low-cost ATD used to simulate the biomechanics of a 7- to 11-year-old in slow-speed car crashes.",
     image: "/images/Engineering.webp",
     category: "projects",
   },
   {
     id: "safeguard",
     position: "SafeGuard",
-    date: "May 2024",
+    date: "2024",
     description: "Chrome extension that tests the reliability of a site. Won 1st place at YRHacks 2024.",
     image: "/images/SafeGuard.webp",
     category: "projects",
@@ -141,7 +207,7 @@ const experiences: Experience[] = [
     id: "hackcanada",
     position: "Organizer",
     company: "Hack Canada",
-    date: "May 2026 - Present",
+    date: "2026",
     description: "Organizing logistics for one of Canada's biggest hackathons.",
     image: "/images/hackcanada.webp",
     link: "https://hackcanada.org/",
@@ -152,7 +218,7 @@ const experiences: Experience[] = [
     position: "Prime Minister",
     company: "York Region Presidents' Council",
     date: "High School",
-    description: "Led the official student senate of the York Region District school Board, representing 135k+ students.",
+    description: "Led the official student senate of the York Region District School Board, representing 135k+ students.",
     image: "/images/SOM.webp",
     link: "https://www2.yrdsb.ca/about-us/board-trustees/student-trustees/york-region-presidents-council-yrpc",
     category: "community",
@@ -192,7 +258,7 @@ const experiences: Experience[] = [
     position: "Executive",
     company: "Team 9569 FIRST Robotics",
     date: "High School",
-    description: "Did (a lot) of community outreach, sponsorships, manufactured and assembled robots, & won awards.",
+    description: "Led community outreach and sponsorships, manufactured and assembled robots, and won awards.",
     image: "/images/robotics.webp",
     link: "https://frc.silverknights.ca/",
     category: "community",
@@ -313,9 +379,12 @@ export function ExperienceSection() {
                 position={exp.position}
                 company={exp.company}
                 date={exp.date}
-                description={exp.description}
+                description={exp.description ?? ""}
                 image={exp.image ?? ""}
-                link={exp.link}
+                video={exp.video}
+                videoPlaybackRate={exp.videoPlaybackRate}
+                githubLink={exp.githubLink}
+                liveLink={exp.liveLink}
               />
             </motion.div>
           ))}

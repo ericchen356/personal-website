@@ -21,7 +21,7 @@ export default function AboutPage() {
       <li className="flex items-baseline gap-2 my-1">
           <span className="text-foreground/40">•</span>
           <span>
-            {"won 5x hackathons"}
+            {"won 7x hackathons"}
           </span>
         </li>
 

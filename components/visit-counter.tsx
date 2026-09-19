@@ -6,6 +6,7 @@ export function VisitCounter() {
   const [count, setCount] = useState<number | null>(null)
 
   useEffect(() => {
+    if (window.location.hostname !== 'ericzxchen.com') return
     fetch('https://abacus.jasoncameron.dev/hit/ericzxchen-com/visits')
       .then((res) => res.json())
       .then((data) => setCount(data.value))
