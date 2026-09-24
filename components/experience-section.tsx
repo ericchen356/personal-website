@@ -29,6 +29,17 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
+    id: "watai",
+    position: "Research Engineer",
+    company: "WAT.ai",
+    date: "2026",
+    image: "",
+    icon: "/images/watai.png",
+    link: "https://watai.ca/",
+    category: "work",
+    art: { hue: 47, variant: 3 },
+  },
+  {
     id: "lunon-swe",
     position: "Software Engineer",
     company: "Lunon",

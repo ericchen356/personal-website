@@ -14,6 +14,25 @@ export default function AboutPage() {
         />
       </p>
 
+      {/* Currently */}
+      <p className="font-medium text-foreground mb-2 mt-4">{"currently:"}</p>
+
+      <ul className="text-foreground/80">
+        <li className="flex items-baseline gap-2 my-1">
+          <span className="text-foreground/40">•</span>
+          <span>
+            {"research engineer @ "}
+            <HighlightLink
+              text="WAT.ai"
+              href="https://watai.ca/"
+              color="yellow"
+              icon="/images/watai.png"
+            />
+            {", working on ml for adaptive-compute inference"}
+          </span>
+        </li>
+      </ul>
+
       {/* Previously */}
       <p className="font-medium text-foreground mb-2 mt-4">{"previously:"}</p>
 
