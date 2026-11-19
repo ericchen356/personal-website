@@ -1,41 +1,27 @@
-'use client'
+// Server Component (no 'use client') on purpose: the count is fetched at
+// request/revalidation time and baked straight into the HTML, so it shows up
+// instantly with zero client-side fetch delay — there's no mount/useEffect
+// round-trip for it to "pop in" after, and therefore nothing to flash blank
+// on reload either.
+//
+// `next: { revalidate }` keeps this on Next's ISR-style data cache: the
+// number refreshes in the background every 60s rather than on every single
+// page view. That trades exact per-visit accuracy (which would require a
+// live, uncached fetch on every request) for a number that's always
+// immediately present — the right trade for a vanity counter.
+export async function VisitCounter() {
+  // Vercel sets this per deployment; it's 'production' only on the real
+  // production deployment (preview deployments get 'preview'), and is
+  // unset entirely off Vercel (e.g. local dev).
+  if (process.env.VERCEL_ENV !== 'production') return null
 
-import { useEffect, useState } from 'react'
+  const data = await fetch('https://abacus.jasoncameron.dev/hit/ericzxchen-com/visits', {
+    next: { revalidate: 60 },
+  })
+    .then((res) => res.json())
+    .catch(() => null)
 
-const STORAGE_KEY = 'ericzxchen-site-visits'
+  if (typeof data?.value !== 'number') return null
 
-export function VisitCounter() {
-  const [count, setCount] = useState<number | null>(null)
-  // Separate from `count` so the placeholder can show immediately on the
-  // right host, instead of waiting on the network round-trip to the visits
-  // API (which is what made the line vanish on every reload).
-  const [onProdHost, setOnProdHost] = useState(false)
-
-  useEffect(() => {
-    if (window.location.hostname !== 'ericzxchen.com') return
-    setOnProdHost(true)
-
-    // React state resets on every reload — there's no persistence across
-    // page loads on its own. Show last known count from localStorage
-    // immediately so reloads don't flash blank while the live fetch below
-    // (to a third-party API) is still in flight.
-    const cached = localStorage.getItem(STORAGE_KEY)
-    if (cached) setCount(Number(cached))
-
-    fetch('https://abacus.jasoncameron.dev/hit/ericzxchen-com/visits')
-      .then((res) => res.json())
-      .then((data) => {
-        setCount(data.value)
-        localStorage.setItem(STORAGE_KEY, String(data.value))
-      })
-      .catch(() => {})
-  }, [])
-
-  if (!onProdHost) return null
-
-  return (
-    <p className="text-sm text-muted-foreground">
-      site visits: {count === null ? '...' : count.toLocaleString()}
-    </p>
-  )
+  return <p className="text-sm text-muted-foreground">site visits: {data.value.toLocaleString()}</p>
 }
