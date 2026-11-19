@@ -96,6 +96,17 @@ const experiences: Experience[] = [
   },
 
   {
+    id: "2figma",
+    position: "Two Figma",
+    date: "2026",
+    description: "We built Figma in Figma by building a CPU, compiler, and OS using Figma variables. Won Best Use of Figma at Cal Hacks 13.0 (230k+ impressions).",
+    image: "/images/2figma.webp",
+    video: "/videos/2figma.mp4",
+    githubLink: "https://github.com/ericchen356/figma-cpu",
+    liveLink: "https://x.com/ericzxchen/status/2115453785120321879",
+    category: "projects",
+  },
+  {
     id: "mayim",
     position: "Mayim",
     date: "2026",

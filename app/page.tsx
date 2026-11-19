@@ -1,4 +1,6 @@
 import { HighlightLink } from "@/components/highlight-link"
+import { ExpandableBullet } from "@/components/expandable-bullet"
+import { CopyIcon } from "@/components/copy-icon"
 
 export default function AboutPage() {
   return (
@@ -40,7 +42,21 @@ export default function AboutPage() {
       <li className="flex items-baseline gap-2 my-1">
           <span className="text-foreground/40">•</span>
           <span>
-            {"won 8x hackathons"}
+            {"won 9x hackathons"}
+          </span>
+        </li>
+
+        <li className="flex items-baseline gap-2 my-1">
+          <span className="text-foreground/40">•</span>
+          <span>
+            {"built a "}
+            <HighlightLink
+              text="CPU in Figma"
+              href="https://x.com/ericzxchen/status/2115453785120321879"
+              color="pink"
+              icon="https://static.figma.com/app/icon/1/favicon.png"
+            />
+            {" to run Figma in Figma (220k+ views)"}
           </span>
         </li>
 
@@ -86,68 +102,69 @@ export default function AboutPage() {
             </span>
           </li>
 
-        <li className="flex items-baseline gap-2 my-1">
-          <span className="text-foreground/40">•</span>
-          <span>
-            {"youngest claims intern (16) @ "}
-            <HighlightLink
-              text="Zurich Insurance"
-              href="https://www.zurich.com/"
-              color="blue"
-              icon="https://edge.sitecorecloud.io/zurichinsur6934-zwpcorp-prod-ae5e/media/project/zurich-headless/shared/corporate/zurich-favicon.png"
-            />
-          </span>
-        </li>
+        <ExpandableBullet label="high school:">
+          <li className="flex items-baseline gap-2 my-1">
+            <span className="text-foreground/40">•</span>
+            <span>
+              {"youngest claims intern (16) @ "}
+              <HighlightLink
+                text="Zurich Insurance"
+                href="https://www.zurich.com/"
+                color="blue"
+                icon="https://edge.sitecorecloud.io/zurichinsur6934-zwpcorp-prod-ae5e/media/project/zurich-headless/shared/corporate/zurich-favicon.png"
+              />
+            </span>
+          </li>
 
-        <li className="flex items-baseline gap-2 my-1">
-          <span className="text-foreground/40">•</span>
-          <span>
-            {"won 3rd @ "}
-             <HighlightLink
-              text="DECA"
-              href="https://deca.org"
-              color="orange"
-              icon="https://cdn.prod.website-files.com/635c3c9aaccd75594c3f6c08/635c6e3d98d20b138d3e4e7c_61776c4fff4246db1efe786c_6042f83cbc84e703dea9431f_deca-large.png"
-            />
-            {" internationals, the world's largest business competition "}
-          </span>
-        </li>
+          <li className="flex items-baseline gap-2 my-1">
+            <span className="text-foreground/40">•</span>
+            <span>
+              {"won 3rd @ "}
+               <HighlightLink
+                text="DECA"
+                href="https://deca.org"
+                color="orange"
+                icon="https://cdn.prod.website-files.com/635c3c9aaccd75594c3f6c08/635c6e3d98d20b138d3e4e7c_61776c4fff4246db1efe786c_6042f83cbc84e703dea9431f_deca-large.png"
+              />
+              {" internationals, the world's largest business competition "}
+            </span>
+          </li>
 
-        <li className="flex items-baseline gap-2 my-1">
-          <span className="text-foreground/40">•</span>
-          <span>
-            {"started and scaled a "}
-            <HighlightLink
-              text="non-profit"
-              href="https://www.instagram.com/launchup.project/"
-              color="red"
-            />
-            {" to reach 110k+ students"}
-          </span>
-        </li>
+          <li className="flex items-baseline gap-2 my-1">
+            <span className="text-foreground/40">•</span>
+            <span>
+              {"started and scaled a "}
+              <HighlightLink
+                text="non-profit"
+                href="https://www.instagram.com/launchup.project/"
+                color="red"
+              />
+              {" to reach 110k+ students"}
+            </span>
+          </li>
 
-        <li className="flex items-baseline gap-2 my-1">
-          <span className="text-foreground/40">•</span>
-          <span>
-            {"led my school board's "}
-            <HighlightLink
-              text="official student senate"
-              href="https://www2.yrdsb.ca/about-us/board-trustees/student-trustees/york-region-presidents-council-yrpc"
-              color="green"
-              icon="https://www2.yrdsb.ca/sites/default/files/2022-12/YRPC-Crest_0.png"
-              iconClassName="scale-150"
-            />
-            {" to represent 135k+ students"}
-          </span>
-        </li>
+          <li className="flex items-baseline gap-2 my-1">
+            <span className="text-foreground/40">•</span>
+            <span>
+              {"led my school board's "}
+              <HighlightLink
+                text="official student senate"
+                href="https://www2.yrdsb.ca/about-us/board-trustees/student-trustees/york-region-presidents-council-yrpc"
+                color="green"
+                icon="https://www2.yrdsb.ca/sites/default/files/2022-12/YRPC-Crest_0.png"
+                iconClassName="scale-150"
+              />
+              {" to represent 135k+ students"}
+            </span>
+          </li>
 
-        <li className="flex items-baseline gap-2 my-1">
-          <span className="text-foreground/40">•</span>
-          <span>
-            {"various: won some case/investment competitions, placed 10th in Ontario for physics, and scored in the 98th percentile on national math contests"}
-          </span>
-        </li>
-
+          <li className="flex items-baseline gap-2 my-1">
+            <span className="text-foreground/40">•</span>
+            <span>
+              {"various: won some case/investment competitions, placed 10th in Ontario for physics, and scored in the 98th percentile on national math contests"}
+            </span>
+          </li>
+        </ExpandableBullet>
       </ul>
 
       {/* Otherwise */}
@@ -189,7 +206,10 @@ export default function AboutPage() {
 
         <li className="flex items-baseline gap-2 my-1">
           <span className="text-foreground/40">•</span>
-          <span>{"reach me at eric.chen4 [at] uwaterloo [dot] ca"}</span>
+          <span className="inline-flex items-center gap-1.5">
+            {"i'm open for internship engineering roles, feel free to reach out at eric.chen4 [at] uwaterloo [dot] ca"}
+            <CopyIcon text="eric.chen4@uwaterloo.ca" />
+          </span>
         </li>
       </ul>
 
