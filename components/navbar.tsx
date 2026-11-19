@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { CopyButton } from "./copy-button"
+import { SocialsRow } from "./socials-row"
 
 const navItems = [
   { name: "home", href: "/" },
@@ -10,18 +10,12 @@ const navItems = [
   { name: "notes", href: "/notes" },
 ]
 
-const socials = [
-  { label: "x", href: "https://x.com/ericzxchen" },
-  { label: "linkedin", href: "https://www.linkedin.com/in/eric356/" },
-  { label: "github", href: "https://github.com/ericchen356" },
-]
-
 export function Navbar() {
   const pathname = usePathname()
 
   return (
     <nav className="flex items-center justify-between">
-      <div className="flex gap-8">
+      <div className="flex gap-4 sm:gap-8">
         {navItems.map((item) => {
           // /notes/<slug> should keep the notes tab lit, but "/" must match exactly.
           const active =
@@ -46,26 +40,8 @@ export function Navbar() {
         })}
       </div>
 
-      <div className="flex items-center gap-2">
-        {socials.map((social) => (
-          <a
-            key={social.label}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group text-sm text-foreground/70 hover:text-foreground transition-colors"
-          >
-            <span className="text-foreground/25 transition-colors group-hover:text-foreground/50">
-              [
-            </span>
-            <span className="px-1">{social.label}</span>
-            <span className="text-foreground/25 transition-colors group-hover:text-foreground/50">
-              ]
-            </span>
-          </a>
-        ))}
-        <CopyButton text="eric.chen4@uwaterloo.ca" label="email" />
-      </div>
+      {/* On mobile these live next to the name instead (see Header). */}
+      <SocialsRow className="hidden sm:flex" />
     </nav>
   )
 }

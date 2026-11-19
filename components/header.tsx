@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { Navbar } from "./navbar"
+import { SocialsRow } from "./socials-row"
 
 export function Header() {
   const [showChinese, setShowChinese] = useState(false)
@@ -14,8 +15,8 @@ export function Header() {
         <Navbar />
       </div>
 
-      {/* Name */}
-      <div className="pt-4">
+      {/* Name (+ socials on mobile, where they don't fit in the navbar) */}
+      <div className="flex flex-wrap items-center justify-between gap-y-2 pt-4">
         <Link href="/">
           {/*
             The English name always holds the box's width; the Chinese name is
@@ -45,6 +46,8 @@ export function Header() {
             </span>
           </h1>
         </Link>
+
+        <SocialsRow className="flex sm:hidden" />
       </div>
     </header>
   )

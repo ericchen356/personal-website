@@ -206,8 +206,8 @@ export default function AboutPage() {
 
         <li className="flex items-baseline gap-2 my-1">
           <span className="text-foreground/40">•</span>
-          <span className="inline-flex items-center gap-1.5">
-            {"i'm open for internship engineering roles, feel free to reach out at eric.chen4 [at] uwaterloo [dot] ca"}
+          <span>
+            {"i'm open for internship engineering roles, feel free to reach out at eric.chen4 [at] uwaterloo [dot] ca "}
             <CopyIcon text="eric.chen4@uwaterloo.ca" />
           </span>
         </li>
